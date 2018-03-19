@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'demo/hello'
   get 'demo/other_hello'
   get 'demo/lynda'
+  
   # root route, where the homepage go
   root 'demo#hello'
 

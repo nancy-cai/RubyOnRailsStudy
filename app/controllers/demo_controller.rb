@@ -1,11 +1,15 @@
 class DemoController < ApplicationController
 
-  # call the index action, but render the demo/hello template
+  # call the index action, and render the demo/index template
   def index
-    render('hello')
+    @number_array=[1,2,3]
+    render('index')
   end
 
-  def Hello
+  def hello
+    @id=params[:id]
+    @page=params['page']
+    render('hello')
   end
 
   def other_hello

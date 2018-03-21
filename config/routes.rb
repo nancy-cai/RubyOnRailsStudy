@@ -1,11 +1,17 @@
 Rails.application.routes.draw do
 
+  resources :subjects do
+    member do
+      get :delete
+    end
+  end
+
   # simple route
   get 'demo/index'
   get 'demo/hello'
   get 'demo/other_hello'
   get 'demo/lynda'
-  
+
   # root route, where the homepage go
   root 'demo#hello'
 

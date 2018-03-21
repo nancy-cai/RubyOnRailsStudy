@@ -1,1 +1,17 @@
-<h1>Hello Index</h1>
+  <h1>Hello Index</h1>
+  <%= 1+1 %>
+  <%target="Target"%>
+  <br/>
+  <%="This is a #{target}"%>
+  <br/>
+  <% 3.times do |n| %>
+   <%=n %><br/>
+  <% end %>
+  <br/>
+  <% @number_array.each do |n| %>
+   <%=n %><br/>
+  <% end %>
+
+  <%= link_to('The hello page', {:action => 'hello'}) %> <br/>
+  <%= link_to('The hello page with params', {:action => 'hello', :page => '5', :id => 1}) %> <br/>
+

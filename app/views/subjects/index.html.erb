@@ -1,4 +1,5 @@
 <h1>Subjects</h1>
+<%= link_to("Add new subject", new_subject_path, :class => 'action new') %>
 <table class="listing" summary="Subject list">
   <tr class="header">
     <th>#</th>
@@ -12,6 +13,7 @@
       <td><%= subject.position %></td>
       <td><%= subject.name %></td>
       <td class="center"><%= subject.visible %></td>
+      <td class="center"><%= subject.pages.size %></td>
       <td class="actions">
         <%= link_to("Show", subject_path(subject), :class => 'action show') %>
         <%= link_to("Edit", edit_subject_path(subject), :class => 'action edit') %>

@@ -1,7 +1,7 @@
 class CreateSections < ActiveRecord::Migration[5.1]
   def up
     create_table :sections do |t|
-      t.references :pages, index: true, foreign_key: true
+      t.integer "page_id"
       t.string "name", :limit => 50
       t.integer "position"
       t.boolean "visible"
@@ -9,6 +9,7 @@ class CreateSections < ActiveRecord::Migration[5.1]
       t.text "content"
       t.timestamps
     end
+    add_index("sections", "page_id")
   end
 
   def down

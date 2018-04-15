@@ -1,13 +1,14 @@
 class CreatePages < ActiveRecord::Migration[5.1]
   def up
     create_table :pages do |t|
-      t.references :subjects, index: true, foreign_key: true
+      t.integer "subject_id"
       t.string "name", :limit => 50
       t.integer "permalink"
       t.integer "position"
-      t.boolean "visible"
+      t.boolean "visible", :default => false
       t.timestamps
     end
+    add_index("pages", "subject_id")
     add_index("pages", "permalink")
   end
 

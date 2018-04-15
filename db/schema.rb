@@ -16,19 +16,19 @@ ActiveRecord::Schema.define(version: 20180321020317) do
   enable_extension "plpgsql"
 
   create_table "pages", force: :cascade do |t|
-    t.bigint "subjects_id"
+    t.integer "subject_id"
     t.string "name", limit: 50
     t.integer "permalink"
     t.integer "position"
-    t.boolean "visible"
+    t.boolean "visible", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["permalink"], name: "index_pages_on_permalink"
-    t.index ["subjects_id"], name: "index_pages_on_subjects_id"
+    t.index ["subject_id"], name: "index_pages_on_subject_id"
   end
 
   create_table "sections", force: :cascade do |t|
-    t.bigint "pages_id"
+    t.integer "page_id"
     t.string "name", limit: 50
     t.integer "position"
     t.boolean "visible"
@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 20180321020317) do
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["pages_id"], name: "index_sections_on_pages_id"
+    t.index ["page_id"], name: "index_sections_on_page_id"
   end
 
   create_table "subjects", force: :cascade do |t|
@@ -56,6 +56,4 @@ ActiveRecord::Schema.define(version: 20180321020317) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "pages", "subjects", column: "subjects_id"
-  add_foreign_key "sections", "pages", column: "pages_id"
 end
